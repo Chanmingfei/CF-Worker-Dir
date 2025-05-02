@@ -2,8 +2,8 @@
  *  自定义网站配置 
  */
 const config = {
-  title: "自定义导航",                 //write your website title
-  subtitle: "Cloudflare Workers Dir", //write your website subtitle
+  title: "百度唐山师范学院吧",                 //write your website title
+  subtitle: "吧务组官网", //write your website subtitle
   logo_icon: "sitemap",               //select your logo by semantic-ui icon (you can get more msg in:https://semantic-ui.com/elements/icon.html)
   hitokoto: true,                     //use hitokoto or not
   search:true,                        //enable search function
@@ -13,11 +13,11 @@ const config = {
       template:"https://www.baidu.com/s?wd=$s"
     },
     {
-      name:"谷 歌",
-      template:"https://www.google.com/search?q=$s"
+      name:"唐山师范学院吧",
+      template:"https://tieba.baidu.com/f?kw=%E5%94%90%E5%B1%B1%E5%B8%88%E8%8C%83%E5%AD%A6%E9%99%A2"
     },
     {
-      name:"必 应",
+      name:"定制邮箱注册",
       template:"https://www.bing.com/search?q=$s"
     },
     {
