@@ -2,9 +2,9 @@
  *  自定义网站配置 
  */
 const config = {
-  title: "自定义导航",                 //write your website title
-  subtitle: "Cloudflare Workers Dir", //write your website subtitle
-  logo_icon: "sitemap",               //select your logo by semantic-ui icon (you can get more msg in:https://semantic-ui.com/elements/icon.html)
+  title: "唐山师范学院吧",                 //write your website title
+  subtitle: "吧务组官网", //write your website subtitle
+  logo_icon: "comments outline",               //select your logo by semantic-ui icon (you can get more msg in:https://semantic-ui.com/elements/icon.html)
   hitokoto: true,                     //use hitokoto or not
   search:true,                        //enable search function
   search_engine:[                     //choose search engine which you use
@@ -12,66 +12,54 @@ const config = {
       name:"百 度",
       template:"https://www.baidu.com/s?wd=$s"
     },
-    {
-      name:"谷 歌",
-      template:"https://www.google.com/search?q=$s"
-    },
-    {
-      name:"必 应",
-      template:"https://www.bing.com/search?q=$s"
-    },
-    {
-      name:"搜 狗",
-      template:"https://www.sogou.com/web?query=$s"
-    }
   ],
   selling_ads: true,                  //Selling your domain or not.(turning on may be helpful for selling this domain by showing some ads.)
   sell_info:{
-    domain:"example.com",
-    price:500,                        //domain price
-    mon_unit:"yen sign",              //monetary unit 
+    domain:"",
+    price:"意见反馈",                        //domain price
+    mon_unit:"",              //monetary unit 
     contact:[                         //how to contact you
       {
         type:"envelope",               //contact type ("weixin","qq","telegram plane","envelope" or "phone")
-        content:"info@example.com"
+        content:"bazhu@tstc.pp.ua"
       }
     ]                        
   },
   lists: [                            //Url list
     {
-      name:"技术",
-      icon:"code",
+      name:"快速链接",
+      icon:"graduation cap",
       list:[
         {
-          url:"https://oschina.net/",
-          name:"开源中国",
-          desc:"程序员集散地"
+          url:"https://www.tstc.edu.cn",
+          name:"唐山师范学院",
+          desc:"唐山师范学院官方网站"
         },
         {
-          url:"https://v2ex.com",
-          name:"V2EX",
-          desc:"程序员集散地"
+          url:"https://tieba.baidu.com/f?kw=%E5%94%90%E5%B1%B1%E5%B8%88%E8%8C%83%E5%AD%A6%E9%99%A2",
+          name:"唐山师范学院吧",
+          desc:"唐山师范学院百度贴吧"
         },
         {
-          url:"https://csdn.net/",
-          name:"CSDN技术社区",
-          desc:"程序员集散地"
+          url:"https://www.wjx.top/vm/wFv03EP.aspx#",
+          name:"邮箱申请",
+          desc:"吧务组免费向吧友提供自定义用户名的邮箱"
         },
         {
-          url:"https://github.com/",
-          name:"Github",
-          desc:"程序员集散地"
+          url:"https://qy.163.com/static/login/",
+          name:"邮箱登录",
+          desc:"自定义邮箱登录"
         },
       ]
     },
     {
-      name:"学习",
-      icon:"graduation cap",
+      name:"吧务组人员公示",
+      icon:"clipboard list",
       list:[
         {
-          url:"https://w3school.com.cn/",
-          name:"W3school在线教程",
-          desc:"程序员集散地"
+          url:"https://tieba.baidu.com/home/main?id=tb.1.f732ecff.LjVmXUAOI9XIE0v0G6bM3Q&fr=userbar",
+          name:"雨雪👀",
+          desc:"吧主"
         },
         {
           url:"https://runoob.com/",
@@ -109,14 +97,16 @@ addEventListener('fetch', event => {
 /*通过分析链接 实时获取favicon
 * @url 需要分析的Url地址
 */
-function getFavicon(url){
-  if(url.match(/https{0,1}:\/\//)){
-    //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url.split('//')[1];
-    return "https://www.google.cn/s2/favicons?sz=64&domain_url=" + url;
-  }else{
-    //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url;
-    return "https://www.google.cn/s2/favicons?sz=64&domain_url=http://" + url;
-  } 
+function getFavicon(url) {
+  // 确保网址以 http:// 或 https:// 开头
+  if (!url.match(/https?:\/\//)) {
+    url = "http://" + url; // 如果没有协议头，自动加上 http://
+  }
+
+  // 使用 icon.bqb.cool 提供的 API 获取 favicon
+  const faviconUrl = `https://icon.bqb.cool?url=${encodeURIComponent(url)}`;
+
+  return faviconUrl;
 }
 
 /** Render Functions
@@ -124,7 +114,7 @@ function getFavicon(url){
  */
 
 function renderIndex(){
-  const footer = el('footer',[],el('div',['class="footer"'],'Powered by' + el('a',['class="ui label"','href="https://github.com/sleepwood/cf-worker-dir"','target="_blank"'],el('i',['class="github icon"'],"") + 'Cf-Worker-Dir') + ' &copy; Base on ' + el('a',['class="ui label"'],el('i',['class="balance scale icon"'],"") + 'MIT License')));
+  const footer = el('footer',[],el('div',['class="footer"'],'吧主信箱 ' + el('a',['class="ui label"','"','target="_blank"'],el('i',['class="mail icon"'],"") + 'bazhu@tstc.pp.ua') + el('a',['class="ui label"'],el('i',['class="balance scale icon"'],"") + '唐山师范学院吧吧务组')+ ' &copy; 版权所有 ' ));
   return renderHeader() + renderMain() + footer;
 }
 
@@ -141,7 +131,7 @@ function renderHeader(){
     }
   }).join(""))
   var input = el('div',['class="ui left corner labeled right icon fluid large input"'],el('div',['class="ui left corner label"'],el('img',['id="search-fav"','class="left floated avatar ui image"','src="https://www.baidu.com/favicon.ico"'],"")) + el('input',['id="searchinput"','type="search"','placeholder="搜索你想要知道的……"','autocomplete="off"'],"") + el('i',['class="inverted circular search link icon"'],""));
-  return el('header',[],el('div',['id="head"','class="ui inverted vertical masthead center aligned segment"'],(config.hitokoto ? el('div',['id="nav"','class="ui container"'],nav) : "") + el('div',['id="title"','class="ui text container"'],title + (config.search ? input + menu :"") + `${config.selling_ads ? '<div><a id="menubtn" class="red ui icon inverted button"><i class="heart icon"></i> 喜欢此域名 </a></div>' : ''}`)))
+  return el('header',[],el('div',['id="head"','class="ui inverted vertical masthead center aligned segment"'],(config.hitokoto ? el('div',['id="nav"','class="ui container"'],nav) : "") + el('div',['id="title"','class="ui text container"'],title + (config.search ? input + menu :"") + `${config.selling_ads ? '<div><a id="menubtn" class="red ui icon inverted button"><i class="heart icon"></i> 意见建议反馈 </a ></div>' : ''}`)))
 }
 
 function renderMain() {
@@ -161,15 +151,15 @@ function renderMain() {
 
 function renderSeller() {
   const item = (type,content) => el('div',['class="item"'],el('i',[`class="${type} icon"`],"") + el('div',['class="content"'],content));
-  var title = el('h1',['class="ui yellow dividing header"'],el('i',['class="gem outline icon"'],"") + el('div',['class="content"'],config.sell_info.domain + ' 正在出售'));
+  var title = el('h1',['class="ui yellow dividing header"'],el('i',['class="gem outline icon"'],"") + el('div',['class="content"'],config.sell_info.domain + ' 吧主信箱'));
   var action = el('div',['class="actions"'],el('div',['class="ui basic cancel inverted button"'],el('i',['class="reply icon"'],"") + '返回'));
 
   var contact = config.sell_info.contact.map((list) => {
     return item(list.type,list.content);
   }).join("");
-  var column = el('div',['class="column"'],el('h3',['class="ui center aligned icon inverted header"'],el('i',['class="circular envelope open outline grey inverted icon"'],"") + '联系我') + el('div',['class="ui relaxed celled large list"'],contact));
+  var column = el('div',['class="column"'],el('h3',['class="ui center aligned icon inverted header"'],el('i',['class="circular envelope open outline grey inverted icon"'],"") + '请联系吧主信箱') + el('div',['class="ui relaxed celled large list"'],contact));
   var price = el('div',['class="column"'],el('div',['class="ui large yellow statistic"'],el('div',['class="value"'],el('i',[`class="${config.sell_info.mon_unit} icon"`],"") + config.sell_info.price)));
-  var content = el('div',['class="content"'],el('div',['class="ui basic segment"'],el('div',['class="ui two column stackable center aligned grid"'],el('div',['class="ui inverted vertical divider"'],'感兴趣？') + el('div',['class="middle aligned row"'],price + column))));
+  var content = el('div',['class="content"'],el('div',['class="ui basic segment"'],el('div',['class="ui two column stackable center aligned grid"'],el('div',['class="ui inverted vertical divider"'],'') + el('div',['class="middle aligned row"'],price + column))));
 
   return el('div',['id="seller"','class="ui basic modal"'],title + content + action);
 }
