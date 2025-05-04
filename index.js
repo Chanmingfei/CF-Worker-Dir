@@ -3,7 +3,7 @@
  */
 const config = {
   title: "唐山师范学院吧",                 // 网站标题
-  subtitle: "吧务组官网", // 网站副标题
+  subtitle: "吧务组官网（非学校官方）", // 网站副标题
   hitokoto: true,                     // 是否使用一言
   search: true,                        // 是否启用搜索功能
   search_engine: [                     // 选择使用的搜索引擎
@@ -18,7 +18,7 @@ const config = {
     price: "意见反馈",                        // 反馈标题
     contact: [                         // 联系方式
       {
-        type: "envelope",               // 联系类型（"envelope"）
+        type: "mail icon",               // 联系类型（"envelope"）
         content: "bazhu@tstc.pp.ua"
       }
     ]                        
@@ -30,7 +30,7 @@ const config = {
         {
           url: "https://www.tstc.edu.cn",
           name: "唐山师范学院",
-          desc: "唐山师范学院官方网站"
+          desc: "您所在的网页并非学校官方，这个才是唐山师范学院官方网站"
         },
         {
           url: "https://tieba.baidu.com/f?kw=%E5%94%90%E5%B1%B1%E5%B8%88%E8%8C%83%E5%AD%A6%E9%99%A2",
@@ -40,12 +40,12 @@ const config = {
         {
           url: "https://www.wjx.top/vm/wFv03EP.aspx#",
           name: "邮箱申请",
-          desc: "吧务组免费向吧友提供自定义用户名的邮箱"
+          desc: "吧务组免费向吧友提供自定义用户名、后缀为@tstc.pp.ua的邮箱"
         },
         {
           url: "https://qy.163.com/static/login/",
           name: "邮箱登录",
-          desc: "自定义邮箱登录"
+          desc: "自定义邮箱登录 由网易企业邮箱提供服务"
         },
       ]
     },
@@ -55,7 +55,7 @@ const config = {
         {
           url: "https://tieba.baidu.com/home/main?id=tb.1.f732ecff.LjVmXUAOI9XIE0v0G6bM3Q&fr=userbar",
           name: "雨雪👀",
-          desc: "吧主"
+          desc: "吧主 唐山师范学院在读 2025年5月当选"
         },
         {
           url: "https://tieba.baidu.com/f?kw=%E5%94%90%E5%B1%B1%E5%B8%88%E8%8C%83%E5%AD%A6%E9%99%A2",
@@ -178,7 +178,7 @@ function renderHTML() {
           margin-top: 1rem;
           font-style: italic;
           text-align: center;
-          color: #a8dadc;
+          color: #333; /* 加深了一言功能的文字颜色 */
           font-size: 1.1rem;
         }
         
@@ -485,10 +485,25 @@ function renderHTML() {
             margin-top: 10px;
           }
         }
+
+        /* 背景图片样式 */
+        .header-background {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url('https://s1.imagehub.cc/images/2025/05/04/46e0a76a0875740296805499009e7a4a.jpg');
+          background-size: cover;
+          background-position: center;
+          opacity: 0.2;
+          z-index: 0;
+        }
       </style>
   </head>
   <body>
     <header>
+      <div class="header-background"></div>
       <div class="container">
         <div class="header-content">
           <div class="logo-container">
@@ -498,7 +513,7 @@ function renderHTML() {
               <p class="site-subtitle">${config.subtitle}</p>
             </div>
           </div>
-          <p class="quote" id="hitokoto">勤思笃学 修身律己</p>
+          <p class="quote" id="hitokoto">勤思笃学 修身律己 （加载中...）</p>
           
           ${config.search ? `
           <form class="search-container" id="searchForm">
@@ -518,7 +533,7 @@ function renderHTML() {
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
               </svg>
-              意见反馈
+              意见建议反馈
             </button>
           </div>
           ` : ''}
@@ -574,7 +589,7 @@ function renderHTML() {
                 </svg>
               </div>
               <div class="contact-info">
-                <div class="contact-label">联系邮箱</div>
+                <div class="contact-label">吧主信箱</div>
                 <div class="contact-value">${contact.content}</div>
               </div>
             </div>
@@ -591,14 +606,14 @@ function renderHTML() {
           <img src="https://s1.imagehub.cc/images/2025/05/04/0458fef2ac8d47bc88ee2151cf193573.jpg" alt="${config.title}" class="footer-logo">
           <h3 class="footer-title">${config.title}</h3>
           <a href="mailto:bazhu@tstc.pp.ua" class="footer-email">吧主信箱：bazhu@tstc.pp.ua</a>
-          <p class="copyright">&copy; ${new Date().getFullYear()} 唐山师范学院吧务组 版权所有</p>
+          <p class="copyright">&copy; ${new Date().getFullYear()} 唐山师范学院吧务组（非学校官方） 版权所有</p>
         </div>
       </div>
     </footer>
     
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        // 搜索栏功能
+        // 搜索框功能
         const searchForm = document.getElementById('searchForm');
         const searchInput = document.getElementById('searchinput');
         
