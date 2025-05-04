@@ -605,7 +605,7 @@ function renderHTML() {
         <div class="footer-content">
           <img src="https://s1.imagehub.cc/images/2025/05/04/0458fef2ac8d47bc88ee2151cf193573.jpg" alt="${config.title}" class="footer-logo">
           <h3 class="footer-title">${config.title}</h3>
-          <a href="mailto:bazhu@tstc.pp.ua" class="footer-email">吧主信箱：bazhu@tstc.pp.ua</a>
+          <a href="mailto:bazhu@tstc.pp.ua" class="footer-email">吧主信箱📬️ bazhu@tstc.pp.ua</a>
           <p class="copyright">&copy; ${new Date().getFullYear()} 唐山师范学院吧务组（非学校官方） 版权所有</p>
         </div>
       </div>
@@ -622,7 +622,7 @@ function renderHTML() {
             e.preventDefault();
             const searchTerm = searchInput.value.trim();
             if (searchTerm) {
-              let searchUrl = config.search_engine[0].template.replace('$s', encodeURIComponent(searchTerm));
+              let searchUrl = '${config.search_engine[0].template}'.replace('$s', encodeURIComponent(searchTerm));
               window.open(searchUrl, '_blank');
             }
           });
@@ -631,10 +631,11 @@ function renderHTML() {
         const searchBtn = document.getElementById('searchBtn');
         
         if (searchBtn) {
-          searchBtn.addEventListener('click', function() {
+          searchBtn.addEventListener('click', function(e) {
+            e.preventDefault();
             const searchTerm = searchInput.value.trim();
             if (searchTerm) {
-              let searchUrl = config.search_engine[0].template.replace('$s', encodeURIComponent(searchTerm));
+              let searchUrl = '${config.search_engine[0].template}'.replace('$s', encodeURIComponent(searchTerm));
               window.open(searchUrl, '_blank');
             }
           });
@@ -698,7 +699,6 @@ async function handleRequest(request) {
   return new Response(renderHTML(), init);
 }
 
-// 注册fetch事件监听器
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request));
 });
