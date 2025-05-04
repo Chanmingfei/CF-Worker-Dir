@@ -698,7 +698,7 @@ async function handleRequest(request) {
   return new Response(renderHTML(), init);
 }
 
-// 添加事件监听器
+// 注册fetch事件监听器
 addEventListener('fetch', event => {
-  return event.respondWith(handleRequest(event.request));
+  event.respondWith(handleRequest(event.request));
 });
