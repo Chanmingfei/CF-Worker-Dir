@@ -58,14 +58,14 @@ const config = {
           desc: "吧主 唐山师范学院在读 2025年5月当选"
         },
         {
-          url: "https://tieba.baidu.com/f?kw=%E5%94%90%E5%B1%B1%E5%B8%88%E8%8C%83%E5%AD%A6%E9%99%A2",
-          name: "欢迎申请",
-          desc: "小吧主"
+          url: "https://tieba.baidu.com/home/main?id=tb.1.22841357._vT29AYL11XgG5fv1jvjCA",
+          name: "Duncan365",
+          desc: "小吧主 唐山师范学院在读 2025年5月任命"
         },
         {
-          url: "https://tieba.baidu.com/f?kw=%E5%94%90%E5%B1%B1%E5%B8%88%E8%8C%83%E5%AD%A6%E9%99%A2",
-          name: "欢迎申请",
-          desc: "小吧主"
+          url: "https://tieba.baidu.com/home/main?id=tb.1.ea2e8210.PNYITnnpR_owXac5m6qrog",
+          name: "总会有人把我照亮",
+          desc: "小吧主 唐山师范学院在读 2025年5月任命"
         },
         {
           url: "https://tieba.baidu.com/f?kw=%E5%94%90%E5%B1%B1%E5%B8%88%E8%8C%83%E5%AD%A6%E9%99%A2",
