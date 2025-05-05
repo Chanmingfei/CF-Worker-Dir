@@ -111,7 +111,7 @@ function renderHTML() {
         }
         
         body {
-          background-color: #f7f9fc;
+          background-color: #f0f4f8;
           color: #333;
           line-height: 1.6;
         }
@@ -124,13 +124,24 @@ function renderHTML() {
         
         /* 头部样式 */
         header {
-          background-color: #fff;
-          border-radius: 0 0 15px 15px;
-          padding: 2rem 0 1.5rem;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-          margin-bottom: 2rem;
+          background: linear-gradient(135deg, #0465bc 0%, #398cc9 100%);
+          color: white;
+          padding: 4rem 0;
+          text-align: center;
           position: relative;
           overflow: hidden;
+          animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+          from {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         
         .header-content {
@@ -140,17 +151,30 @@ function renderHTML() {
         
         .logo-container {
           display: flex;
+          justify-content: center;
           align-items: center;
-          margin-bottom: 0.5rem;
+          margin-bottom: 1rem;
         }
         
         .logo {
-          width: 80px;
-          height: 80px;
+          width: 100px;
+          height: 100px;
           border-radius: 50%;
           object-fit: cover;
-          border: 3px solid #e0e6ed;
-          margin-right: 20px;
+          border: 4px solid white;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          animation: scaleIn 0.8s ease-out;
+        }
+
+        @keyframes scaleIn {
+          from {
+            opacity: 0;
+            transform: scale(0.8);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
         }
         
         .site-info {
@@ -160,26 +184,38 @@ function renderHTML() {
         }
         
         .site-title {
-          font-size: 1.8rem;
+          font-size: 2.5rem;
           font-weight: 700;
-          color: #1d3557;
           margin-bottom: 5px;
+          animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         
         .site-subtitle {
-          font-size: 1rem;
+          font-size: 1.2rem;
           font-weight: 400;
           opacity: 0.9;
-          color: #457b9d;
           margin-bottom: 1rem;
+          animation: fadeInUp 1.2s ease-out;
         }
         
         .quote {
           margin-top: 1rem;
           font-style: italic;
           text-align: center;
-          color: #333; /* 加深了一言功能的文字颜色 */
+          color: white;
           font-size: 1.1rem;
+          animation: fadeInUp 1.4s ease-out;
         }
         
         /* 搜索框功能样式 */
@@ -187,22 +223,22 @@ function renderHTML() {
           max-width: 600px;
           margin: 1.5rem auto;
           position: relative;
+          animation: fadeInUp 1.6s ease-out;
         }
         
         .search-box {
           width: 100%;
-          padding: 12px 20px;
-          border: 2px solid #a8dadc;
-          border-radius: 8px;
+          padding: 15px 20px;
+          border: none;
+          border-radius: 30px;
           font-size: 1rem;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
           transition: all 0.3s ease;
-          background-color: white;
         }
         
         .search-box:focus {
           outline: none;
-          border-color: #457b9d;
-          box-shadow: 0 0 0 4px rgba(69, 123, 157, 0.2);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
 
         .search-btn {
@@ -213,7 +249,7 @@ function renderHTML() {
           background: none;
           border: none;
           font-size: 1.2rem;
-          color: #457b9d;
+          color: #2575fc;
           cursor: pointer;
         }
         
@@ -222,24 +258,28 @@ function renderHTML() {
           display: flex;
           justify-content: center;
           margin: 1.5rem 0;
+          animation: fadeInUp 1.8s ease-out;
         }
         
         .feedback-btn {
-          background-color: #a8dadc;
-          color: #1d3557;
+          background-color: white;
+          color: #2575fc;
           border: none;
-          padding: 10px 20px;
-          border-radius: 20px;
+          padding: 12px 25px;
+          border-radius: 30px;
           font-weight: 600;
           cursor: pointer;
           transition: all 0.3s ease;
           display: flex;
           align-items: center;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         
         .feedback-btn:hover {
-          background-color: #457b9d;
+          background-color: #2575fc;
           color: white;
+          transform: translateY(-3px);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .feedback-btn svg {
@@ -248,23 +288,33 @@ function renderHTML() {
         
         /* 主要内容区域 */
         .main-content {
-          padding: 0 0 4rem;
+          padding: 4rem 0;
         }
         
         .section {
-          margin-bottom: 3rem;
+          margin-bottom: 4rem;
+          animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
         }
         
         .section-header {
           display: flex;
-          justify-content: space-between;
+          justify-content: center;
           align-items: center;
-          margin-bottom: 1.5rem;
+          margin-bottom: 2rem;
         }
         
         .section-title {
-          font-size: 1.5rem;
-          color: #1d3557;
+          font-size: 2rem;
+          color: #2575fc;
           position: relative;
           display: flex;
           align-items: center;
@@ -273,99 +323,101 @@ function renderHTML() {
         .section-title::before {
           content: '';
           display: inline-block;
-          width: 24px;
-          height: 24px;
-          margin-right: 10px;
+          width: 30px;
+          height: 30px;
+          margin-right: 15px;
           background-size: contain;
           background-repeat: no-repeat;
         }
         
         .quick-links .section-title::before {
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23457b9d'%3E%3Cpath d='M20 6h-4V4c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 0h-4V4h4v2z'/%3E%3C/svg%3E");
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232575fc'%3E%3Cpath d='M20 6h-4V4c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 0h-4V4h4v2z'/%3E%3C/svg%3E");
         }
         
         .team .section-title::before {
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23457b9d'%3E%3Cpath d='M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z'/%3E%3C/svg%3E");
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232575fc'%3E%3Cpath d='M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z'/%3E%3C/svg%3E");
         }
         
         /* 卡片样式 */
         .cards-container {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-          gap: 20px;
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 30px;
         }
         
         .card {
           background-color: white;
-          border-radius: 10px;
+          border-radius: 15px;
           overflow: hidden;
-          box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+          transition: all 0.3s ease;
           text-decoration: none;
           color: inherit;
         }
         
         .card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+          transform: translateY(-10px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
         
         .card-content {
-          padding: 20px;
+          padding: 30px;
           display: flex;
           flex-direction: column;
         }
         
         .card-icon {
-          width: 40px;
-          height: 40px;
-          border-radius: 8px;
-          margin-bottom: 15px;
+          width: 50px;
+          height: 50px;
+          border-radius: 10px;
+          margin-bottom: 20px;
           object-fit: cover;
         }
         
         .card-title {
-          font-size: 1.1rem;
+          font-size: 1.3rem;
           font-weight: 600;
-          margin-bottom: 8px;
-          color: #1d3557;
+          margin-bottom: 10px;
+          color: #2575fc;
         }
         
         .card-description {
-          font-size: 0.9rem;
-          color: #a8a8a8;
+          font-size: 1rem;
+          color: #777;
           flex-grow: 1;
         }
         
         /* 底部样式 */
         footer {
-          background-color: #1d3557;
+          background-color: #0465bc;
           color: white;
           padding: 3rem 0;
+          text-align: center;
+          animation: fadeInUp 1s ease-out;
         }
         
         .footer-content {
           max-width: 800px;
           margin: 0 auto;
-          text-align: center;
         }
         
         .footer-logo {
-          width: 60px;
-          height: 60px;
+          width: 80px;
+          height: 80px;
           border-radius: 50%;
           object-fit: cover;
           margin: 0 auto 1rem;
-          border: 3px solid #a8dadc;
+          border: 4px solid white;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
         
         .footer-title {
-          font-size: 1.3rem;
+          font-size: 1.5rem;
           margin-bottom: 1.5rem;
         }
         
         .footer-email {
-          color: #a8dadc;
+          color: white;
           text-decoration: none;
           display: block;
           margin-bottom: 1rem;
@@ -373,7 +425,7 @@ function renderHTML() {
         
         .copyright {
           font-size: 0.9rem;
-          color: rgba(255,255,255,0.6);
+          color: rgba(255, 255, 255, 0.8);
         }
         
         /* 模态框样式 */
@@ -384,23 +436,36 @@ function renderHTML() {
           left: 0;
           width: 100%;
           height: 100%;
-          background-color: rgba(0,0,0,0.5);
+          background-color: rgba(0, 0, 0, 0.5);
           z-index: 1000;
           justify-content: center;
           align-items: center;
+          animation: fadeIn 0.3s ease-out;
         }
         
         .modal {
           background-color: white;
-          border-radius: 12px;
+          border-radius: 15px;
           width: 90%;
           max-width: 500px;
           overflow: hidden;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+          animation: scaleInModal 0.3s ease-out;
+        }
+
+        @keyframes scaleInModal {
+          from {
+            opacity: 0;
+            transform: scale(0.8);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
         }
         
         .modal-header {
-          padding: 20px;
+          padding: 25px;
           border-bottom: 1px solid #eee;
           display: flex;
           justify-content: space-between;
@@ -408,39 +473,39 @@ function renderHTML() {
         }
         
         .modal-title {
-          font-size: 1.3rem;
+          font-size: 1.5rem;
           font-weight: 600;
-          color: #1d3557;
+          color: #2575fc;
         }
         
         .modal-close {
           background: none;
           border: none;
-          font-size: 1.5rem;
+          font-size: 1.8rem;
           cursor: pointer;
-          color: #a8a8a8;
+          color: #777;
         }
         
         .modal-body {
-          padding: 20px;
+          padding: 25px;
         }
         
         .contact-item {
           display: flex;
           align-items: center;
-          margin-bottom: 15px;
+          margin-bottom: 20px;
         }
         
         .contact-icon {
-          width: 40px;
-          height: 40px;
+          width: 50px;
+          height: 50px;
           border-radius: 50%;
           background-color: #e0e6ed;
           display: flex;
           justify-content: center;
           align-items: center;
-          margin-right: 15px;
-          color: #1d3557;
+          margin-right: 20px;
+          color: #2575fc;
         }
         
         .contact-info {
@@ -449,19 +514,19 @@ function renderHTML() {
         
         .contact-label {
           font-size: 0.9rem;
-          color: #a8a8a8;
-          margin-bottom: 3px;
+          color: #777;
+          margin-bottom: 5px;
         }
         
         .contact-value {
           font-weight: 500;
-          color: #1d3557;
+          color: #2575fc;
         }
         
         /* 响应式设计 */
         @media (max-width: 768px) {
           .site-title {
-            font-size: 1.5rem;
+            font-size: 2rem;
           }
           
           .search-container {
@@ -689,6 +754,7 @@ function renderHTML() {
   </html>`;
 }
 
+
 // 处理请求并返回响应
 async function handleRequest(request) {
   const init = {
@@ -698,7 +764,7 @@ async function handleRequest(request) {
   };
   return new Response(renderHTML(), init);
 }
-
+// 注册 fetch 事件处理程序
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request));
 });
