@@ -124,7 +124,7 @@ function renderHTML() {
         
         /* 头部样式 */
         header {
-          background: linear-gradient(135deg, #0465bc 0%, #398cc9 100%);
+          background: linear-gradient(135deg, #0465bc 0%, #2575fc 100%);
           color: white;
           padding: 4rem 0;
           text-align: center;
